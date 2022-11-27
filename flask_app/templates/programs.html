@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Liz Fitness</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../static/css/aos.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='programs.css') }}"
+    />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../static/css/liz_page_style.css" />
+  </head>
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Liz Fitness</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a href="./" class="nav-link smoothScroll">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/contact/us" class="nav-link smoothScroll">Contact</a>
+            </li>
+            {% if session['google_id'] or session['user_id'] or session['github_oauth_token'] %}
+
+            <li class="nav-item">
+              <a href="/logout" class="nav-link smoothScroll">logout</a>
+            </li>
+            {% else %}
+
+            <li class="nav-item">
+              <a href="/login/page" class="nav-link smoothScroll">login</a>
+            </li>
+            {% endif %}
+          </ul>
+
+          <ul class="social-icon ml-lg-3">
+            <ul class="social-icon ml-lg-3">
+              <li>
+                <a
+                  href="https://www.instagram.com/__dadaliz/"
+                  target="_blank"
+                  class="fa fa-instagram"
+                ></a>
+              </li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CLASS -->
+    <section class="class section" id="class">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-12 text-center mb-5">
+            <h6 data-aos="fade-up" style="text-transform: uppercase">
+              Welcome {{session.first_name}} {{session.last_name}} {{session.name}}
+            </h6>
+
+            <h2 data-aos="fade-up" data-aos-delay="200">Programs</h2>
+          </div>
+
+          <div
+            class="col-lg-4 col-md-6 col-12"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="class-thumb">
+              <a href="/beginners/course">
+                <img
+                  src="../static/images/beginners.jpg"
+                  class="img-fluid"
+                  alt="Class"
+                />
+              </a>
+              <div class="class-info">
+                <h3 class="mb-1">Beginners Plan</h3>
+
+                <span class="class-price" style="right: 5px; top: 10px"
+                  >$50</span
+                >
+
+                <form action="/beginners/course">
+                  <button class="noselect">Access</button>
+                </form>
+                <form action="/stripe/pay">
+                  <button class="noselect">Buy</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="class-thumb">
+              <a href="/intermediate/course">
+                <img
+                  src="../static/images/intermediate.jpg"
+                  class="img-fluid"
+                  alt="Class"
+                />
+              </a>
+              <div class="class-info">
+                <h3 class="mb-1">Intermediate</h3>
+
+                <span class="class-price">$66</span>
+
+                <form action="/intermediate/course">
+                  <button class="noselect">Access</button>
+                </form>
+                <form action="/stripe/pay">
+                  <button class="noselect">Buy</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="class-thumb">
+              <a href="/advance/course">
+                <img
+                  src="../static/images/advance.jpg"
+                  class="img-fluid"
+                  alt="Class"
+                />
+              </a>
+                <div class="class-info">
+                  <h3 class="mb-1">Advance</h3>
+
+                  <span class="class-price">$75</span>
+
+                  <form action="/advance/course">
+                    <button class="noselect">Access</button>
+                    </form>
+                    <form action="/stripe/pay">
+                    <button class="noselect">Buy</button>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="ml-auto col-lg-4 col-md-5">
+            <p class="copyright-text">Copyright &copy; 2022 Liz Fitness Co.</p>
+          </div>
+
+          <div
+            class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12"
+          >
+            <p class="mr-4">
+              <i class="fa fa-envelope-o mr-1"></i>
+              <a
+                href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+                target="_blank"
+                >lizdada7@gmail.com</a
+              >
+            </p>
+
+            <p><i class="fa fa-phone mr-1"></i> 253-380-1654</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/aos.js"></script>
+    <script src="../static/js/smoothscroll.js"></script>
+    <script src="../static/js/custom.js"></script>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    {#
+    <script>
+      const checkout_public_key = "{{checkout_public_key}}";
+      const checkout_session_id = "{{checkout_session_id}}";
+    </script>
+    #}
+    <script src="{{ url_for('static', filename='script-no-ajax.js') }}"></script>
+  </body>
+</html>

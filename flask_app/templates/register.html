@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/aos.css">
+    <link rel="stylesheet" href="../static/css/liz_page_style.css" />
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+    <style>
+      .navbar{
+        background-color: transparent;
+      }
+
+      form.my_form{
+        padding: 0px 35px;
+      }
+    </style>
+
+    <title>Sign up</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+
+          <a class="navbar-brand" href="/">Liz Fitness</a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-lg-auto">
+                  <li class="nav-item">
+                      <a href="/" class="nav-link smoothScroll">Home</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href="/contact/us" class="nav-link smoothScroll">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/login/page" class="nav-link smoothScroll">Login</a>
+                  </li>
+              </ul>
+
+          </div>
+
+      </div>
+  </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          {% with messages = get_flashed_messages() %} {% if messages %} {% for
+          message in messages %}
+          <p>{{message}}</p>
+          {% endfor %} {% endif %} {% endwith %}
+          <div class="background">
+            <div class="shape"></div>z
+            <div class="shape"></div>
+          </div>
+          <form action="/register/user" method="post" class="my_form">
+            <div class="form-group">
+              <h1>Register</h1>
+              <label>First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="first name"
+                name="first_name"
+                id="username"
+              />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="last name"
+                name="last_name"
+              />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="email"
+                name="email"
+              />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                value="password"
+                name="password"
+                id="password"
+              />
+            </div>
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                value="password"
+                name="confirm-password"
+              />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+  </body>
+</html>

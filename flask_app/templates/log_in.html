@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/aos.css">
+    <link rel="stylesheet" href="../static/css/liz_page_style.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <!--Stylesheet-->
+    <title>Log in</title>
+
+    <style>
+      .navbar{
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+
+          <a class="navbar-brand" href="/">Liz Fitness</a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-lg-auto">
+                  <li class="nav-item">
+                      <a href="/" class="nav-link smoothScroll">Home</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href="/contact/us" class="nav-link smoothScroll">Contact</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href='/register/page' class="nav-link smoothScroll">Sign Up</a>
+                  </li>
+              </ul>
+
+          </div>
+
+      </div>
+  </nav>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+          </div>
+          <form action="/login" method="post">
+            <h3>Login Here</h3>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %} 
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %} 
+            {% endif %} 
+            {% endwith %}
+            <label for="email">Email</label>
+            <input type="text" placeholder="Email" id="username" name="email" />
+
+            <label for="password">Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              value="password"
+              name="password"
+            />
+
+            <button>Log In</button>
+            <div class="social" style="padding-bottom: 40px;">
+              <div  style="background-color: transparent; "> <a class='fa fa-google' href="/google/login"></a> </div>
+              <div style="background-color: transparent;"> <a class="fa fa-github"  href="/github/login"></a> </div>
+            </div>
+          </form>
+        </div>
+
+        
+      </div>
+    </div>
+
+
+  </body>
+</html>

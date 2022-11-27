@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>Liz Fitness</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+     <link rel="stylesheet" href="../static/css/aos.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='about_me.css') }}">
+
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="../static/css/liz_page_style.css">
+
+			<!-- Custom styles for this template go here -->
+      <style>
+         .navbar-expand-lg .navbar-nav .nav-link {
+          left: 100%;
+        }
+      </style>
+	
+	</head>
+	<body>
+
+           <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="/">Liz Fitness</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link smoothScroll">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/contact/us" class="nav-link smoothScroll">Contact</a>
+                    </li>
+                    {% if session['google_id'] or session['user_id'] or session['github_oauth_token'] %}                    
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link smoothScroll">logout</a>
+                    </li>
+                    {% else %}
+                    
+                    <li class="nav-item">
+                        <a href="/login/page" class="nav-link smoothScroll">login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href='/register/page' class="nav-link smoothScroll">Sign Up</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+                <ul class="social-icon ml-lg-3">
+                    <ul class="social-icon ml-lg-3">
+                        <li><a href="https://www.instagram.com/__dadaliz/" target="_blank" class="fa fa-instagram"></a></li>
+                    </ul>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+		<div class="cont_principal">
+            <div class="cont_central">
+              <div class="cont_modal cont_modal_active">
+              <div class="cont_photo">
+            <div class="cont_img_back">
+                <img src="../static/images/aboutme.png" alt="" />
+                </div>
+          
+
+            <div class="cont_detalles">
+                </div>
+                </div>
+            <div class="cont_text_ingredients">
+            <div class="cont_over_hidden">
+             
+            
+               
+              <div class="cont_text_det_preparation">
+              <div class="cont_title_preparation">
+                <h3>Lizeth Dada</h3>
+                </div>
+              <div class="cont_info_preparation">
+                <p style="font-size: 15px;">Hello my name is lizeth and I am a fitness coach,
+                  My passion for training started with me wanting to make a change for myself
+                  and having a better and healthier life style. I started this program because 
+                  I know how it feels to start lost and don't feel comfortable with yourself.
+                  My goal here is to help everybody from beginner to advance in a way you won't
+                  try to quit because it was impossible to do it.
+                </p>
+                </div>  
+              <div class="cont_text_det_preparation">
+            
+              <div class="cont_title_preparation">
+                <p style="font-family: italic;">“Success is usually the culmination of controlling failure.”</p>
+                </div>
+              
+              </div>
+            </div>  
+              <div class="cont_btn_mas_dets">
+              <a href="#"><i class="material-icons">&#xE313;</i></a>
+              </div>
+                
+              </div>
+              <div class="cont_btn_open_dets">
+              <a href="#e" onclick="open_close()"><i class="material-icons">&#xE314;</i></a>
+              </div>
+            
+                </div>
+               </div>
+            </div>
+            
+            
+
+            <script>
+                window.onload = function(){
+document.querySelector('.cont_modal').className = "cont_modal";    
+}
+var c = 0;
+function open_close(){
+  if(c % 2 == 0){    
+document.querySelector('.cont_modal').className = "cont_modal cont_modal_active";  
+c++;
+  }else {
+document.querySelector('.cont_modal').className = "cont_modal";  
+c++;    
+  }  
+} 
+            </script>
+</html>

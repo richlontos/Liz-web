@@ -1,0 +1,46 @@
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+button {
+	width: 70px;
+	height: 25px;
+    margin-top: 10px;
+	cursor: pointer;
+	background: #a98f89;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 0px 15px #e775d2, 0px 0px 15px #a6097c, inset 0px -5px 10px #2585c6, inset 0px 5px 10px #db168c;
+	font-family: 'Damion', cursive;
+	color: white;
+	font-size: 15px;
+	transition: 500ms;
+}
+
+button:hover {
+		border: 2px solid #6dd6d1;
+	animation: hueRotation 2s linear infinite;
+}
+
+@keyframes hueRotation {
+	to {filter: hue-rotate(360deg);}
+}
+
+button:focus {
+	outline: none;
+}
+
+form{
+    display: inline-block;
+}
+
+a *{
+   color: white; 
+}
