@@ -10,6 +10,12 @@ This is the main page where you can see what's the page about.
 https://user-images.githubusercontent.com/86168029/204126027-6db3ee5b-91ec-4df1-abc9-79ae284fdeed.mp4
 
 
+
+
+https://user-images.githubusercontent.com/86168029/204251275-3ce2eb49-a91d-4f22-a8cf-6e854a873aa0.mp4
+
+
+
 Google login was implemented to facilitate the user experience.
 
 
